@@ -11,7 +11,7 @@ def pluginName = 'opensearch-rest-plugin'
 def pluginDescription = 'Custom rest plugin'
 def projectPath = 'org.opensearch'
 def pathToPlugin = 'rest.action'
-def pluginClassName = 'HelloWorldPlugin'
+def pluginClassName = 'ToDoPlugin'
 
 tasks.register("preparePluginPathDirs") {
     mustRunAfter clean

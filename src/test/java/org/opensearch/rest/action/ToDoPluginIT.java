@@ -8,8 +8,8 @@
 package org.opensearch.rest.action;
 
 import com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope;
-import org.apache.hc.core5.http.ParseException;
-import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.http.ParseException;
+import org.apache.http.util.EntityUtils;
 import org.opensearch.client.Request;
 import org.opensearch.client.Response;
 import org.opensearch.plugins.Plugin;
@@ -24,11 +24,11 @@ import static org.hamcrest.Matchers.containsString;
 
 @ThreadLeakScope(ThreadLeakScope.Scope.NONE)
 @OpenSearchIntegTestCase.ClusterScope(scope = OpenSearchIntegTestCase.Scope.SUITE)
-public class HelloWorldPluginIT extends OpenSearchIntegTestCase {
+public class ToDoPluginIT extends OpenSearchIntegTestCase {
 
     @Override
     protected Collection<Class<? extends Plugin>> nodePlugins() {
-        return Collections.singletonList(HelloWorldPlugin.class);
+        return Collections.singletonList(ToDoPlugin.class);
     }
 
     public void testPluginInstalled() throws IOException, ParseException {
@@ -36,6 +36,6 @@ public class HelloWorldPluginIT extends OpenSearchIntegTestCase {
         String body = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
 
         logger.info("response body: {}", body);
-        assertThat(body, containsString("opensearch-rest-plugin"));
+        assertThat(body, containsString("opensearch-plugin-crud-sample"));
     }
 }

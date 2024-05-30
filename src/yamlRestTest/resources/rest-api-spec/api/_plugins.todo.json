@@ -1,12 +1,11 @@
 {
-  "_plugins.hello_world": {
+  "_plugins.todo": {
     "stability" : "stable",
     "url": {
       "paths": [
         {
-          "path": "/_plugins/hello_world",
+          "path": "/_plugins/todo",
           "methods": [
-            "GET",
             "POST"
           ]
         }

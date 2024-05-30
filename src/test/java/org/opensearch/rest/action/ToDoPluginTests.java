@@ -12,10 +12,10 @@ import org.opensearch.test.OpenSearchTestCase;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class HelloWorldPluginTests extends OpenSearchTestCase {
-    public void testBuildHelloWorldResponse() {
+public class ToDoPluginTests extends OpenSearchTestCase {
+    public void testBuildToDoResponse() {
         String name = "What's in a name?";
-        assertThat(HelloWorldService.buildResponse(name).content().utf8ToString(),
+        assertThat(ToDoService.buildResponse(name).content().utf8ToString(),
                 equalTo("Hi " + name + "! Your plugin is installed and working:)"));
     }
 }

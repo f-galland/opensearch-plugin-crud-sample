@@ -7,5 +7,5 @@
  * in the user manual at https://docs.gradle.org/6.5.1/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'rest-example'
+rootProject.name = 'opensearch-plugin-crud-sample'
 startParameter.excludedTaskNames=["validatePluginZipPom"]

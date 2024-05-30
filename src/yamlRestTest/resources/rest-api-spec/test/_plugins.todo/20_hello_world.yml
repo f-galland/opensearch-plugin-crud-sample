@@ -1,0 +1,15 @@
+---
+"Default with no name":
+  - do:
+      _plugins.todo: {}
+
+  - match: {$body: "Hi! Your plugin is installed and working:)" }
+
+---
+"With name":
+  - do:
+      _plugins.todo:
+        body:
+          name: Fede
+
+  - match: {$body: "Hi Fede! Your plugin is installed and working:)" }

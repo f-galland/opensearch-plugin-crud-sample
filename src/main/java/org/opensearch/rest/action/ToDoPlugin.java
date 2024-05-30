@@ -17,15 +17,13 @@ import org.opensearch.plugins.ActionPlugin;
 import org.opensearch.plugins.Plugin;
 import org.opensearch.rest.RestController;
 import org.opensearch.rest.RestHandler;
-import org.opensearch.rest.RestHeaderDefinition;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
 
 import static java.util.Collections.singletonList;
 
-public class HelloWorldPlugin extends Plugin implements ActionPlugin {
+public class ToDoPlugin extends Plugin implements ActionPlugin {
 
     @Override
     public List<RestHandler> getRestHandlers(final Settings settings,
@@ -36,7 +34,7 @@ public class HelloWorldPlugin extends Plugin implements ActionPlugin {
                                              final IndexNameExpressionResolver indexNameExpressionResolver,
                                              final Supplier<DiscoveryNodes> nodesInCluster) {
 
-        return singletonList(new RestHelloWorldAction());
+        return singletonList(new ToDoRestIndexAction());
     }
 
 }

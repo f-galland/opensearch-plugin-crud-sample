@@ -12,8 +12,8 @@ import org.opensearch.rest.BytesRestResponse;
 import org.opensearch.rest.RestResponse;
 import org.opensearch.core.rest.RestStatus;
 
-public class HelloWorldService {
 
+public class ToDoService {
     public static RestResponse buildResponse(String name) {
         String space = name.isEmpty()? "" : " ";
         final String message = "Hi" + space + name + "! Your plugin is installed and working:)";

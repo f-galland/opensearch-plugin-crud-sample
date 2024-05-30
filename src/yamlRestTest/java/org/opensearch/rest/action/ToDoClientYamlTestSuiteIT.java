@@ -13,9 +13,9 @@ import org.opensearch.test.rest.yaml.ClientYamlTestCandidate;
 import org.opensearch.test.rest.yaml.OpenSearchClientYamlSuiteTestCase;
 
 
-public class HelloWorldClientYamlTestSuiteIT extends OpenSearchClientYamlSuiteTestCase {
+public class ToDoClientYamlTestSuiteIT extends OpenSearchClientYamlSuiteTestCase {
 
-    public HelloWorldClientYamlTestSuiteIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
+    public ToDoClientYamlTestSuiteIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
         super(testCandidate);
     }
 
