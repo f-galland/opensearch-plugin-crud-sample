@@ -7,6 +7,7 @@
  */
 package org.opensearch.rest.action;
 
+import com.google.common.collect.ImmutableList;
 import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
 import org.opensearch.cluster.node.DiscoveryNodes;
 import org.opensearch.common.settings.ClusterSettings;
@@ -21,9 +22,9 @@ import org.opensearch.rest.RestHandler;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static java.util.Collections.singletonList;
-
 public class ToDoPlugin extends Plugin implements ActionPlugin {
+
+    static final String TODO_INDEX_NAME = "todo";
 
     @Override
     public List<RestHandler> getRestHandlers(final Settings settings,
@@ -34,7 +35,17 @@ public class ToDoPlugin extends Plugin implements ActionPlugin {
                                              final IndexNameExpressionResolver indexNameExpressionResolver,
                                              final Supplier<DiscoveryNodes> nodesInCluster) {
 
-        return singletonList(new ToDoRestIndexAction());
+        //return singletonList(new ToDoRestIndexAction());
+        ToDoRestIndexAction toDoRestIndexAction = new ToDoRestIndexAction();
+        ToDoRestGetAction toDoRestGetAction = new ToDoRestGetAction();
+        ToDoRestUpdateAction toDoRestUpdateAction = new ToDoRestUpdateAction();
+        ToDoRestDeleteAction toDoRestDeleteAction = new ToDoRestDeleteAction();
+        return ImmutableList.of(
+            toDoRestIndexAction,
+            toDoRestGetAction,
+            toDoRestUpdateAction,
+            toDoRestDeleteAction
+        );
     }
 
 }
