@@ -1,0 +1,14 @@
+---
+"Create test":
+    - do:
+        _plugins.todo_create:
+            body: { foo: bar }
+
+    - set: { _id: document_id }
+    - match: { _index: todo }
+
+    - do:
+        get:
+            index: todo
+            id: $document_id
+    - match: { _source: { foo: bar } }

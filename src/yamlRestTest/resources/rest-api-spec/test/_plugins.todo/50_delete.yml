@@ -1,0 +1,14 @@
+---
+"Delete test":
+    - do:
+          index:
+              index:  todo
+              id:     1000
+              body:
+                  foo:    bar
+
+    - do:
+          _plugins.todo_delete:
+              id: 1000
+    - match: { _index: todo }
+    - match: { result: deleted }

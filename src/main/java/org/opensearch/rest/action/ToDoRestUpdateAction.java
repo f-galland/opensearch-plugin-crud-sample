@@ -1,3 +1,11 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * The OpenSearch Contributors require contributions made to
+ * this file be licensed under the Apache-2.0 license or a
+ * compatible open source license.
+ */
+
 package org.opensearch.rest.action;
 
 import org.opensearch.action.ActionRequestValidationException;
@@ -14,12 +22,12 @@ import org.opensearch.search.fetch.subphase.FetchSourceContext;
 import java.io.IOException;
 import java.util.List;
 
-import static org.opensearch.rest.RestRequest.Method.POST;
+import static org.opensearch.rest.RestRequest.Method.PUT;
 
 public class ToDoRestUpdateAction extends BaseRestHandler {
   @Override
   public List<Route> routes() {
-    return List.of(new Route(POST, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME + "/update/{id}"));
+    return List.of(new Route(PUT, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME + "/{id}"));
   }
 
   @Override

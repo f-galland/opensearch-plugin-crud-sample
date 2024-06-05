@@ -1,8 +1,8 @@
-"Test that the plugin is loaded in OpenSearch":
+"Plugin load test":
   - do:
       cat.plugins:
         local: true
         h: component
 
   - match:
-      $body: /^opensearch-rest-plugin\n$/
+      $body: /^todo-plugin\n$/

@@ -1,0 +1,24 @@
+{
+  "_plugins.todo_update": {
+    "stability" : "stable",
+    "url": {
+      "paths": [
+        {
+          "path": "/_plugins/todo/{id}",
+          "methods": [
+            "PUT"
+          ],
+          "parts": {
+            "id":{
+              "type":"string",
+              "description":"The id of the document to update"
+            }
+          }
+        }
+      ]
+    },
+    "body": {
+      "description": "The document"
+    }
+  }
+}

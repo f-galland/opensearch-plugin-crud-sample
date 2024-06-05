@@ -1,0 +1,21 @@
+{
+  "_plugins.todo_delete": {
+    "stability" : "stable",
+    "url": {
+      "paths": [
+        {
+          "path": "/_plugins/todo/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parts": {
+            "id":{
+              "type":"string",
+              "description":"The id of the document to update"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
