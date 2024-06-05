@@ -36,6 +36,6 @@ public class ToDoPluginIT extends OpenSearchIntegTestCase {
         String body = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
 
         logger.info("response body: {}", body);
-        assertThat(body, containsString("opensearch-plugin-crud-sample"));
+        assertThat(body, containsString("todo-plugin"));
     }
 }

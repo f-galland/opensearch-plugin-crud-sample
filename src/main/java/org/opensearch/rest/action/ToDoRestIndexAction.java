@@ -23,7 +23,7 @@ public class ToDoRestIndexAction extends RestIndexAction {
   @Override
   public List<Route> routes() {
     return List.of(
-        new Route(POST, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME + "/create"));
+        new Route(POST, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME));
   }
 
   @Override

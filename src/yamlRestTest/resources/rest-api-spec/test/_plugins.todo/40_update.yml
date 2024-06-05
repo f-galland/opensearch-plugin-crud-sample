@@ -1,0 +1,19 @@
+---
+"Update test":
+    - do:
+          index:
+              index:  todo
+              id:     1000
+              body:
+                  foo:    bar
+
+    - do:
+        _plugins.todo_update:
+           id: 1000
+           body: { doc: { foo: baz } }
+
+    - do:
+          get:
+              index: todo
+              id: 1000
+    - match: { _source: { foo: baz } }

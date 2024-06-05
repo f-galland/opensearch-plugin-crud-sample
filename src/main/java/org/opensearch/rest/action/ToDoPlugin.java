@@ -7,7 +7,7 @@
  */
 package org.opensearch.rest.action;
 
-import com.google.common.collect.ImmutableList;
+//import com.google.common.collect.ImmutableList;
 import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
 import org.opensearch.cluster.node.DiscoveryNodes;
 import org.opensearch.common.settings.ClusterSettings;
@@ -40,7 +40,7 @@ public class ToDoPlugin extends Plugin implements ActionPlugin {
         ToDoRestGetAction toDoRestGetAction = new ToDoRestGetAction();
         ToDoRestUpdateAction toDoRestUpdateAction = new ToDoRestUpdateAction();
         ToDoRestDeleteAction toDoRestDeleteAction = new ToDoRestDeleteAction();
-        return ImmutableList.of(
+        return List.of(
             toDoRestIndexAction,
             toDoRestGetAction,
             toDoRestUpdateAction,
