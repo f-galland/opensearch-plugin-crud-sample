@@ -23,7 +23,7 @@ import static org.opensearch.rest.RestRequest.Method.DELETE;
 public class ToDoRestDeleteAction extends BaseRestHandler {
   @Override
   public List<Route> routes() {
-    return List.of(new Route(DELETE, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME + "/{id}"));
+    return List.of(new Route(DELETE, ToDoPlugin.TODO_BASE_URI + "/{id}"));
   }
 
   @Override
