@@ -32,57 +32,56 @@
 
 package org.opensearch.rest.action;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import org.junit.Before;
 import org.mockito.Mockito;
 import org.opensearch.client.node.NodeClient;
-import org.opensearch.common.xcontent.XContentType;
-import org.opensearch.core.common.bytes.BytesArray;
 import org.opensearch.rest.RestHandler;
 import org.opensearch.rest.RestRequest;
 import org.opensearch.test.OpenSearchTestCase;
 import org.opensearch.test.rest.FakeRestChannel;
 import org.opensearch.test.rest.FakeRestRequest;
 
-public class ToDoRestIndexActionTests extends OpenSearchTestCase {
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+public class ToDoRestDeleteActionTests extends OpenSearchTestCase {
     private String path;
     private String requestBody;
-    private ToDoRestIndexAction toDoRestIndexAction;
+    private ToDoRestDeleteAction toDoRestDeleteAction;
 
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        this.path = String.format(Locale.ROOT, "%s", ToDoPlugin.TODO_BASE_URI);
-        this.requestBody = "{\"foo\":\"bar\"}";
-        this.toDoRestIndexAction = new ToDoRestIndexAction();
+        this.path = String.format(Locale.ROOT, "%s/%s", ToDoPlugin.TODO_BASE_URI,  "{id}");
+        this.requestBody = "{\"doc\":{\"foo\":\"bar\"}}";
+        this.toDoRestDeleteAction = new ToDoRestDeleteAction();
     }
 
     public void testGetNames() {
-        String name = toDoRestIndexAction.getName();
-        assertEquals("todo_plugin_document_index", name);
+        String name = toDoRestDeleteAction.getName();
+        assertEquals("todo_plugin_document_delete", name);
     }
 
     public void testGetRoutes() {
-        List<RestHandler.Route> routes = toDoRestIndexAction.routes();
+        List<RestHandler.Route> routes = toDoRestDeleteAction.routes();
         assertEquals(this.path, routes.get(0).getPath());
     }
 
     public void testPrepareRequest() throws IOException {
         Map<String, String> params = new HashMap<>();
-        FakeRestRequest request = new FakeRestRequest.Builder(xContentRegistry()).withMethod(RestRequest.Method.POST)
+        FakeRestRequest request = new FakeRestRequest.Builder(xContentRegistry()).withMethod(RestRequest.Method.PUT)
             .withPath(this.path)
             .withParams(params)
-            .withContent(new BytesArray(this.requestBody), XContentType.JSON)
+            //.withContent(new BytesArray(this.requestBody), XContentType.JSON)
+            .withContent(null, null)
             .build();
 
         final FakeRestChannel channel = new FakeRestChannel(request, true, 0);
 
-        this.toDoRestIndexAction.prepareRequest(request, Mockito.mock(NodeClient.class));
-        logger.info(channel.capturedResponse());
+        this.toDoRestDeleteAction.prepareRequest(request, Mockito.mock(NodeClient.class));
         assertEquals(channel.responses().get(), 0);
         assertEquals(channel.errors().get(), 0);
     }
