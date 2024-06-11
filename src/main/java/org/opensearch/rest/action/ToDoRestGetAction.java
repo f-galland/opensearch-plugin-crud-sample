@@ -33,7 +33,7 @@ public class ToDoRestGetAction extends BaseRestHandler {
 
   @Override
   public List<Route> routes() {
-    return List.of(new Route(GET, "/_plugins/" + ToDoPlugin.TODO_INDEX_NAME + "/{id}"));
+    return List.of(new Route(GET, ToDoPlugin.TODO_BASE_URI + "/{id}"));
   }
 
   @Override

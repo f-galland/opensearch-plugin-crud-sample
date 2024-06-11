@@ -25,6 +25,7 @@ import java.util.function.Supplier;
 public class ToDoPlugin extends Plugin implements ActionPlugin {
 
     static final String TODO_INDEX_NAME = "todo";
+    static final String TODO_BASE_URI = "/_plugins/" + TODO_INDEX_NAME;
 
     @Override
     public List<RestHandler> getRestHandlers(final Settings settings,
